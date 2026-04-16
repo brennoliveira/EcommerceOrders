@@ -1,4 +1,5 @@
 ﻿using Application.UseCases.Orders.CreateOrder;
+using Application.UseCases.Orders.GetOrders;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,6 +16,13 @@ namespace Api.Controllers
         {
             var id = await _mediator.Send(command);
             return CreatedAtAction(nameof(GetById), new { id }, null);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Get([FromQuery] GetOrdersQuery query)
+        {
+            var orders = await _mediator.Send(query);
+            return Ok(orders);
         }
 
         [HttpGet("{id}")]

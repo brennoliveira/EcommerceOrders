@@ -1,3 +1,4 @@
+using Application.UseCases.Orders.GetOrders;
 using Domain.Interfaces;
 using Infrastructure.Persistence;
 using Infrastructure.Repositories;
@@ -14,15 +15,19 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddMediatR(cfg =>
-    cfg.RegisterServicesFromAssembly(typeof(Program).Assembly)
+    cfg.RegisterServicesFromAssembly(typeof(GetOrdersQuery).Assembly)
 );
 
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+
+builder.Services.AddControllers();
 
 var app = builder.Build();
 
 app.UseSwagger();
 app.UseSwaggerUI();
+
+app.MapControllers();
 
 app.MapGet("/", () => "API is running");
 
