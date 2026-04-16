@@ -12,6 +12,10 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddMediatR(cfg =>
+    cfg.RegisterServicesFromAssembly(typeof(Program).Assembly)
+);
+
 builder.Services.AddScoped<IOrderRepository, IOrderRepository>();
 
 var app = builder.Build();
