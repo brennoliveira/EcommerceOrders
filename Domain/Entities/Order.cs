@@ -15,6 +15,8 @@ namespace Domain.Entities
         public OrderStatus Status { get; private set; }
         public List<OrderItem> Items { get; private set; }
 
+        private Order() { } // For EF Core
+
         public Order(Guid userId, List<OrderItem> items)
         {
             if (items == null || !items.Any())

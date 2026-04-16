@@ -17,6 +17,14 @@ namespace Infrastructure.Persistence
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<OrderItem>()
+                .Property(x => x.UnitPrice)
+                .HasPrecision(18, 2);
+
+            modelBuilder.Entity<Product>()
+                .Property(x => x.Price)
+                .HasPrecision(18, 2);
+
             modelBuilder.Entity<Order>()
                 .HasMany(o => o.Items)
                 .WithOne()
