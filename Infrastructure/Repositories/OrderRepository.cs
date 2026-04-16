@@ -17,11 +17,15 @@ namespace Infrastructure.Repositories
         public async Task AddAsync(Order order)
         {
             await _context.Orders.AddAsync(order);
+            await _context.SaveChangesAsync();
+
         }
 
         public async Task<Order?> GetByIdAsync(Guid id)
         {
             return await _context.Orders.FindAsync(id);
+            await _context.SaveChangesAsync();
+
         }
 
         public async Task<List<Order>> GetAllAsync()
@@ -29,6 +33,8 @@ namespace Infrastructure.Repositories
             return await _context.Orders
                 .Include(o => o.Items)
                 .ToListAsync();
+            await _context.SaveChangesAsync();
+
         }
 
         public async Task UpdateAsync(Order order)
