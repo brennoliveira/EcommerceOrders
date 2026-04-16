@@ -1,4 +1,5 @@
-﻿using Application.UseCases.Orders.CreateOrder;
+﻿using Application.UseCases.Orders.CancelOrder;
+using Application.UseCases.Orders.CreateOrder;
 using Application.UseCases.Orders.GetOrders;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -29,6 +30,16 @@ namespace Api.Controllers
         public IActionResult GetById(Guid id)
         {
             return Ok(); // TODO
+        }
+
+        [HttpPatch("{id}/cancel")]
+        public async Task<IActionResult> Cancel(Guid id)
+        {
+            var command = new CancelOrderCommand { OrderId = id };
+
+            await _mediator.Send(command);
+
+            return NoContent();
         }
     }
 }
