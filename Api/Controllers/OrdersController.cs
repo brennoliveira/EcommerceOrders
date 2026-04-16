@@ -1,8 +1,10 @@
 ﻿using Application.UseCases.Orders.CancelOrder;
 using Application.UseCases.Orders.CreateOrder;
+using Application.UseCases.Orders.GetOrderById;
 using Application.UseCases.Orders.GetOrders;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace Api.Controllers
 {
@@ -27,9 +29,14 @@ namespace Api.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetById(Guid id)
+        public async Task<IActionResult> GetById(Guid id)
         {
-            return Ok(); // TODO
+            var result = await _mediator.Send(new GetOrderByIdQuery { Id = id });
+
+            if (result is null)
+                return NotFound();
+
+            return Ok(result);
         }
 
         [HttpPatch("{id}/cancel")]
