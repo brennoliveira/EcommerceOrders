@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.0.31903.59
+# Visual Studio Version 18
+VisualStudioVersion = 18.3.11408.92 d18.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "Api\Api.csproj", "{92F41D52-70D3-49A4-A025-6E768BE710D0}"
 EndProject
@@ -17,6 +17,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Itens de Solução", "Itens
 		docker-compose.yml = docker-compose.yml
 		Dockerfile = Dockerfile
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{1A38D1CF-E0FF-4983-B4FB-B77C6E3267CD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -76,6 +78,18 @@ Global
 		{84A49B90-CFAB-474D-9966-8BD4A6E2CFCB}.Release|x64.Build.0 = Release|Any CPU
 		{84A49B90-CFAB-474D-9966-8BD4A6E2CFCB}.Release|x86.ActiveCfg = Release|Any CPU
 		{84A49B90-CFAB-474D-9966-8BD4A6E2CFCB}.Release|x86.Build.0 = Release|Any CPU
+		{1A38D1CF-E0FF-4983-B4FB-B77C6E3267CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A38D1CF-E0FF-4983-B4FB-B77C6E3267CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A38D1CF-E0FF-4983-B4FB-B77C6E3267CD}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{1A38D1CF-E0FF-4983-B4FB-B77C6E3267CD}.Debug|x64.Build.0 = Debug|Any CPU
+		{1A38D1CF-E0FF-4983-B4FB-B77C6E3267CD}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{1A38D1CF-E0FF-4983-B4FB-B77C6E3267CD}.Debug|x86.Build.0 = Debug|Any CPU
+		{1A38D1CF-E0FF-4983-B4FB-B77C6E3267CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A38D1CF-E0FF-4983-B4FB-B77C6E3267CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A38D1CF-E0FF-4983-B4FB-B77C6E3267CD}.Release|x64.ActiveCfg = Release|Any CPU
+		{1A38D1CF-E0FF-4983-B4FB-B77C6E3267CD}.Release|x64.Build.0 = Release|Any CPU
+		{1A38D1CF-E0FF-4983-B4FB-B77C6E3267CD}.Release|x86.ActiveCfg = Release|Any CPU
+		{1A38D1CF-E0FF-4983-B4FB-B77C6E3267CD}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
