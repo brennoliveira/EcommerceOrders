@@ -2,6 +2,7 @@
 using Application.UseCases.Orders.CreateOrder;
 using Application.UseCases.Orders.GetOrderById;
 using Application.UseCases.Orders.GetOrders;
+using Application.UseCases.Orders.UpdateOrder;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -45,6 +46,19 @@ namespace Api.Controllers
             var command = new CancelOrderCommand { OrderId = id };
 
             await _mediator.Send(command);
+
+            return NoContent();
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(Guid id, UpdateOrderCommand command)
+        {
+            if (id != command.OrderId)
+                return BadRequest("ID in URL does not match ID in body.");
+
+            var result = await _mediator.Send(command);
+            if (!result)
+                return NotFound();
 
             return NoContent();
         }
